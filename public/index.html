@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soket Server</title>
+  </head>
+  <body>
+    <header><h1>Bienvenido</h1></header>
+
+    <!-- ? Biblioteca de -->
+    <script src= "socket.io/socket.io.js">
+    </script>
+
+    <!-- ? coneccion al servidor -->
+    <script>
+    
+      var socket = io();
+      socket.on("connect", function () {
+        console.log("Conectado al servidor");
+      });
+
+      var socket = io();
+      socket.on("desconnect", function () {
+        console.log("Se ha perdido la comunicacion al servidor");
+      });
+
+      socket.emit('message', {"name": "Cristian"} );
+
+      socket.on('message', (payload)=>{
+        console.log('mensaje de:', payload.admin);
+      });
+    </script>
+  </body>
+</html>
